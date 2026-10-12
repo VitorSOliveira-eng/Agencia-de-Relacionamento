@@ -14,7 +14,23 @@ public class Candidato {
 
     // Áreas de interesse
     
+    public Candidato(int id) {
+        this.id = id;
+        this.areas = new ListaAreaInteresses();
+        this.companheiros = new ListaIdentificadores();
+    }
 
+    public Candidato(int id, String nome, String estado, char sexo, char sexoCompanheiro) {
+        this(id);
+        atualizar(nome, estado, sexo, sexoCompanheiro);
+    }
+
+    public void atualizar(String nome, String estado, char sexo, char sexoCompanheiro) {
+        this.nome = nome;
+        this.estado = estado;
+        this.sexo = Character.toUpperCase(sexo);
+        this.sexoCompanheiro = Character.toUpperCase(sexoCompanheiro);
+    }
     // IDs dos potenciais companheiros
 
 
