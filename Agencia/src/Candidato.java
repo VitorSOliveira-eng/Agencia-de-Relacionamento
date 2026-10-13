@@ -105,7 +105,17 @@ public class Candidato {
         companheiros.limpar();
     }
 
-   
+     public boolean temInteresse(int codigoArea) {
+        return areas.contem(codigoArea);
+    }
+
+    /** Verdadeiro se o candidato reside no estado informado. */
+    public boolean reside(String sigla) {
+        return estado != null && sigla != null && estado.equalsIgnoreCase(sigla.trim());
+    }
+
+
+    
     // Getters
 
     public int getId() {
