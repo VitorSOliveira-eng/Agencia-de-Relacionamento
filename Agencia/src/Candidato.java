@@ -72,7 +72,38 @@ public class Candidato {
     
     
     // IDs dos potenciais companheiros
+         public static boolean verificaPotencialCompanheiro(Candidato u, Candidato v, int grauMinimo) {
+        if (u.getId() == v.getId()) {
+            return false;
+        }
+        if (!u.reside(v.getEstado())) {
+            return false;
+        }
+        boolean uAceitaV = u.sexoCompanheiro == 'I' || u.sexoCompanheiro == v.sexo;
+        boolean vAceitaU = v.sexoCompanheiro == 'I' || v.sexoCompanheiro == u.sexo;
+        if (!uAceitaV || !vAceitaU) {
+            return false;
+        }
+        int minimo = grauMinimo < 1 ? 1 : grauMinimo;
+        return grauInteresseComum(u, v) >= minimo;
+    }
 
+    
+    public static void inserePotencialCompanheiro(Candidato u, Candidato v) {
+        u.companheiros.inserir(v.getId());
+    }
+
+    public static int numeroCompanheiros(Candidato u) {
+        return u.companheiros.tamanho();
+    }
+
+    public static ListaIdentificadores listaCompanheiros(Candidato u) {
+        return u.companheiros;
+    }
+
+    public void limparCompanheiros() {
+        companheiros.limpar();
+    }
 
    
     // Getters
