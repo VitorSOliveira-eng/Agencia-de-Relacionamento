@@ -31,6 +31,46 @@ public class Candidato {
         this.sexo = Character.toUpperCase(sexo);
         this.sexoCompanheiro = Character.toUpperCase(sexoCompanheiro);
     }
+    public void adicionarArea(int codigoArea) {
+        if (codigoArea < 1 || codigoArea > 8) {
+            return;
+        }
+        if (!areas.contem(codigoArea)) {
+            areas.inserir(codigoArea);
+        }
+    }
+
+  
+    public static int pesoArea(int codigoArea) {
+        switch (codigoArea) {
+            case 1:
+            case 3:
+            case 4:
+                return 1;
+            case 2:
+            case 6:
+            case 7:
+                return 2;
+            default:
+                return 3;
+        }
+    }
+
+    public static int grauInteresseComum(Candidato u, Candidato v) {
+        int grau = 0;
+        CelulaAreaInteresse atual = u.areas.inicio();
+        while (atual != null) {
+            if (v.temInteresse(atual.codigoArea)) {
+                grau += pesoArea(atual.codigoArea);
+            }
+            atual = atual.proximo;
+        }
+        return grau;
+    }
+    
+    
+    
+    
     // IDs dos potenciais companheiros
 
 
