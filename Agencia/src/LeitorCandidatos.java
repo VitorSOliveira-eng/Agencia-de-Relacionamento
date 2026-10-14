@@ -2,15 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-/**
- * Lê o arquivo candidatos.txt no formato:
- *   N
- *   ****
- *   nome / sigla_estado / sexo / sexo_interesse / numero_areas / area_1 ... area_n
- *   ****
- *   ...
- * Os ids são atribuídos sequencialmente a partir de 1.
- */
 public class LeitorCandidatos {
 
     public static ListaCandidatos ler(String caminho) throws IOException {
@@ -51,7 +42,6 @@ public class LeitorCandidatos {
         return lista;
     }
 
-    /** Próxima linha não vazia (sem espaços nas pontas), ou null no fim do arquivo. */
     private static String proximaLinha(BufferedReader br) throws IOException {
         String linha = br.readLine();
         while (linha != null && linha.trim().isEmpty()) {
