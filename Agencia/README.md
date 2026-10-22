@@ -30,3 +30,7 @@ ARQUIVOS
   Candidato, CelulaAreaInteresse, ListaAreaInteresses, CelulaIdentificador,
   ListaIdentificadores, ListaCandidatos, LeitorCandidatos, Aplicacao, Main,
   GeradorCandidatos, nomes.txt
+
+  PROJETO
+https://github.com/VitorSOliveira-eng/Agencia-de-Relacionamento
+Vitor Silva de Oliveira & Mateus Carvalho Costa
