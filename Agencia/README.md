@@ -1,18 +1,32 @@
-## Getting Started
+GERAR DADOS DE TESTE 
+  java GeradorCandidatos [N] [arquivoNomes] [arquivoSaida]
+  Padrões: N = 200, arquivoNomes = nomes.txt, arquivoSaida = candidatos.txt
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+EXECUTAR
+  java Main [arquivoCandidatos]
+  Padrão: candidatos.txt
 
-## Folder Structure
+MENU
+  1 - Definir/atualizar o grau de interesse mínimo (recalcula os pares)
+  2 - Número e nomes dos potenciais companheiros de um candidato (por id)
+  3 - K candidatos com maior número de potenciais companheiros
+  4 - Candidatos sem nenhum potencial companheiro
+  5 - Candidatos com interesse em uma área (1 a 8)
+  6 - Candidatos que residem em um estado (sigla)
+  0 - Sair
 
-The workspace contains two folders by default, where:
+REGRAS DE PARES
+  - Mesmo estado.
+  - Opção sexual atendida nos dois sentidos (F, M ou I = indiferente).
+  - Grau de interesse comum >= grau definido pelo usuário (grau inicial = 1).
+  - Pesos das áreas: 1 (ESPORTES, MÚSICA, CINEMA); 2 (ARTES, ANIMAIS, GASTRONOMIA);
+    3 (TECNOLOGIA, CIÊNCIAS).
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+ESTRUTURAS
+  Todas as listas são simplesmente encadeadas com sentinela e tail (sem ArrayList/LinkedList):
+  ListaAreaInteresses, ListaIdentificadores, ListaCandidatos.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+ARQUIVOS
+  Candidato, CelulaAreaInteresse, ListaAreaInteresses, CelulaIdentificador,
+  ListaIdentificadores, ListaCandidatos, LeitorCandidatos, Aplicacao, Main,
+  GeradorCandidatos, nomes.txt
